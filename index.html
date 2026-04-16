@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spyro Fans — Industrial HVLS Fans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR (hidden until JS activates on pointer devices) -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true">
+  <img src="Spyro_S_Logo.svg" alt="" draggable="false"/>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     LOADING SCREEN
+══════════════════════════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-fan-wrap">
+      <img src="Spyro_S_Logo.svg" class="loader-fan-spin" alt="" aria-hidden="true"/>
+    </div>
+    <p class="loader-brand">
+      <span class="lbt-spyro">SPYRO</span><span class="lbt-fans">FANS</span>
+    </p>
+    <p class="loader-hint">Initialising 3D Experience&hellip;</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <img src="Spyro_S_Logo.svg" alt="" class="logo-icon" aria-hidden="true"/>
+    <span class="logo-brand-text"><span class="lbt-spyro">SPYRO</span><span class="lbt-fans">FANS</span></span>
+  </a>
+
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#products"     class="nl">Products</a></li>
+    <li><a href="#features"     class="nl">Features</a></li>
+    <li><a href="#gallery"      class="nl">Gallery</a></li>
+    <li><a href="#configurator" class="nl">Configurator</a></li>
+    <li><a href="#contact"      class="nl nav-cta">Get a Quote</a></li>
+  </ul>
+
+  <div class="nav-end">
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+      <!-- Sun icon — visible in dark mode -->
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <!-- Moon icon — visible in light mode -->
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO — 2-column CSS grid: left text | right carousel
+══════════════════════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- LEFT COLUMN — static title + dynamic per-slide content -->
+  <div class="hero-left">
+    <p class="hero-eyebrow">HVLS Industrial Fans</p>
+    <h1 class="hero-title">Engineered<br/>for Industry</h1>
+
+    <!-- Dynamic: category name + bullet specs (updated by JS per slide) -->
+    <div class="hero-dynamic">
+      <div class="slide-category">
+        <span class="cat-dot"></span>
+        <span id="slide-cat-name">Roof Fans</span>
+      </div>
+      <ul class="slide-specs-list" id="slide-specs-list">
+        <li>Optimized for large ceiling installations</li>
+        <li>Energy-efficient low-speed airflow</li>
+        <li>Whisper-quiet operation</li>
+      </ul>
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="hero-btns">
+      <a href="#configurator" class="hero-cta">
+        Explore 3D Fan
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="hero-cta-secondary" id="hero-slide-btn">Watch Demo</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="h-stat">
+        <span class="h-val stat-diameter">24<small>ft</small></span>
+        <span class="h-lbl">Max Diameter</span>
+      </div>
+      <div class="h-div"></div>
+      <div class="h-stat">
+        <span class="h-val stat-coverage">2500<small>m²</small></span>
+        <span class="h-lbl">Per Fan Coverage</span>
+      </div>
+      <div class="h-div"></div>
+      <div class="h-stat">
+        <span class="h-val stat-savings">90<small>%</small></span>
+        <span class="h-lbl">Energy Savings</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN — Image / Video Carousel -->
+  <div class="hero-right" id="hero-carousel">
+
+    <!-- Slides -->
+    <div class="carousel-track" id="carousel-track">
+
+      <div class="carousel-slide active" data-index="0">
+        <img src="roof1.png" alt="Roof Fans" class="slide-media"
+             onerror="this.style.background='#0a1028'"/>
+      </div>
+
+      <div class="carousel-slide" data-index="1">
+        <img src="floor1.png" alt="Floor Fans" class="slide-media"
+             onerror="this.style.background='#0a1028'"/>
+      </div>
+
+      <div class="carousel-slide" data-index="2">
+        <img src="pole1.png" alt="Pole Fans" class="slide-media"
+             onerror="this.style.background='#0a1028'"/>
+      </div>
+
+      <div class="carousel-slide" data-index="3">
+        <video class="slide-media slide-video"
+               src="airflow.mp4"
+               autoplay muted loop playsinline
+               preload="none"
+               poster="spyro24.jpg">
+        </video>
+      </div>
+
+    </div>
+
+    <!-- Slide info overlay (bottom-left of carousel panel) -->
+    <div class="carousel-info">
+      <h3 class="ci-title" id="ci-title">Roof Fans</h3>
+      <button class="ci-btn" id="ci-btn">Watch Demo</button>
+    </div>
+
+    <!-- Dots + prev/next navigation -->
+    <div class="carousel-nav">
+      <button class="carousel-prev" id="carousel-prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="carousel-dots" id="carousel-dots">
+        <button class="c-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="c-dot"        data-index="1" aria-label="Slide 2"></button>
+        <button class="c-dot"        data-index="2" aria-label="Slide 3"></button>
+        <button class="c-dot"        data-index="3" aria-label="Slide 4"></button>
+      </div>
+
+      <button class="carousel-next" id="carousel-next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Auto-advance progress bar -->
+    <div class="carousel-progress" id="carousel-progress"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     HVLS FAN SERIES SECTION
+══════════════════════════════════════════════════════ -->
+<section id="products" class="site-section fan-selector-section">
+  <div class="section-wrap">
+    <header class="section-header reveal">
+      <span class="section-tag">Our Range</span>
+      <h2>HVLS Fan Series</h2>
+      <p>Five models engineered for every industrial scale — from 12 ft entry-level to 24 ft flagship.</p>
+    </header>
+
+    <div class="fan-selector-layout">
+
+      <!-- LEFT: large product preview -->
+      <div class="fan-selector-preview reveal">
+        <img id="hvls-preview-img" src="spyro24.jpg" alt="HVLS Fan"
+             onerror="this.src='spyro24.png'"/>
+      </div>
+
+      <!-- RIGHT: selectors + specs -->
+      <div class="fan-selector-controls reveal">
+
+        <div class="fs-group">
+          <p class="fs-label">Model</p>
+          <div class="fs-tabs" data-fan="hvls" data-type="model">
+            <button class="fs-tab active" data-value="spyro24">Spyro 24</button>
+            <button class="fs-tab"        data-value="spyro20">Spyro 20</button>
+            <button class="fs-tab"        data-value="spyro18">Spyro 18</button>
+            <button class="fs-tab"        data-value="spyro16">Spyro 16</button>
+            <button class="fs-tab"        data-value="spyro12">Spyro 12</button>
+          </div>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Colour</p>
+          <div class="fs-colors">
+            <button class="fs-color active" style="background:#e0e0e0" data-color="Pearl White"      aria-label="Pearl White"></button>
+            <button class="fs-color"        style="background:#1a1a2e" data-color="Midnight"          aria-label="Midnight"></button>
+            <button class="fs-color"        style="background:#ff3b3b" data-color="Spyro Red"         aria-label="Spyro Red"></button>
+            <button class="fs-color"        style="background:#888888" data-color="Industrial Grey"   aria-label="Industrial Grey"></button>
+            <button class="fs-color"        style="background:#ffd600" data-color="Safety Yellow"     aria-label="Safety Yellow"></button>
+          </div>
+          <span class="fs-color-name">Pearl White</span>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Mount Type</p>
+          <div class="fs-tabs" data-fan="hvls" data-type="mount">
+            <button class="fs-tab active" data-value="std">Standard</button>
+            <button class="fs-tab"        data-value="drop">Drop Rod</button>
+            <button class="fs-tab"        data-value="angle">Angled</button>
+          </div>
+        </div>
+
+        <div class="fan-spec-panel" id="hvls-spec-panel">
+          <div class="fan-spec-row"><span>Model</span><strong id="hvls-s-model">Spyro 24</strong></div>
+          <div class="fan-spec-row"><span>Diameter</span><strong id="hvls-s-diameter">7.3 m / 24 ft</strong></div>
+          <div class="fan-spec-row"><span>Coverage</span><strong id="hvls-s-coverage">2,500 m²</strong></div>
+          <div class="fan-spec-row"><span>Motor</span><strong id="hvls-s-power">1.5 kW</strong></div>
+          <div class="fan-spec-row"><span>Max Speed</span><strong id="hvls-s-speed">68 RPM</strong></div>
+        </div>
+
+        <a href="#contact" class="config-enquire">Request Quote &rarr;</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     POLE FANS SECTION
+══════════════════════════════════════════════════════ -->
+<section id="pole-fans" class="site-section alt-bg fan-selector-section">
+  <div class="section-wrap">
+    <header class="section-header reveal">
+      <span class="section-tag">Pole Series</span>
+      <h2>Pole Fan Range</h2>
+      <p>Adjustable-height pole fans for gymnasiums, hangars, retail spaces, and outdoor coverage.</p>
+    </header>
+
+    <div class="fan-selector-layout">
+
+      <div class="fan-selector-controls reveal">
+        <div class="fs-group">
+          <p class="fs-label">Model</p>
+          <div class="fs-tabs" data-fan="pole" data-type="model">
+            <button class="fs-tab active" data-value="model1">Elevate 300</button>
+            <button class="fs-tab"        data-value="model2">Elevate 450</button>
+            <button class="fs-tab"        data-value="model3">Elevate 600</button>
+          </div>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Colour</p>
+          <div class="fs-colors">
+            <button class="fs-color active" style="background:#d4d4d4" data-color="Silver"    aria-label="Silver"></button>
+            <button class="fs-color"        style="background:#1a1a2e" data-color="Midnight"  aria-label="Midnight"></button>
+            <button class="fs-color"        style="background:#ff3b3b" data-color="Spyro Red" aria-label="Spyro Red"></button>
+          </div>
+          <span class="fs-color-name">Silver</span>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Pole Height</p>
+          <div class="fs-tabs" data-fan="pole" data-type="size">
+            <button class="fs-tab active" data-value="s">2.5 m</button>
+            <button class="fs-tab"        data-value="m">3.5 m</button>
+            <button class="fs-tab"        data-value="l">5.0 m</button>
+          </div>
+        </div>
+
+        <div class="fan-spec-panel" id="pole-spec-panel">
+          <div class="fan-spec-row"><span>Model</span><strong id="pole-s-model">Elevate 300</strong></div>
+          <div class="fan-spec-row"><span>Airflow</span><strong id="pole-s-airflow">1,600 m³/h</strong></div>
+          <div class="fan-spec-row"><span>Motor</span><strong id="pole-s-motor">0.37 kW</strong></div>
+          <div class="fan-spec-row"><span>Noise Level</span><strong id="pole-s-noise">48 dB</strong></div>
+        </div>
+
+        <a href="#contact" class="config-enquire">Request Quote &rarr;</a>
+      </div>
+
+      <div class="fan-selector-preview reveal">
+        <img id="pole-preview-img" src="pole1.png" alt="Pole Fan"
+             onerror="this.style.opacity='0.15'"/>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FLOOR FANS SECTION
+══════════════════════════════════════════════════════ -->
+<section id="floor-fans" class="site-section fan-selector-section">
+  <div class="section-wrap">
+    <header class="section-header reveal">
+      <span class="section-tag">Floor Series</span>
+      <h2>Floor Fan Range</h2>
+      <p>High-velocity industrial floor fans for targeted spot cooling, loading docks, and workshops.</p>
+    </header>
+
+    <div class="fan-selector-layout">
+
+      <div class="fan-selector-preview reveal">
+        <img id="floor-preview-img" src="floor1.png" alt="Floor Fan"
+             onerror="this.style.opacity='0.15'"/>
+      </div>
+
+      <div class="fan-selector-controls reveal">
+        <div class="fs-group">
+          <p class="fs-label">Model</p>
+          <div class="fs-tabs" data-fan="floor" data-type="model">
+            <button class="fs-tab active" data-value="model1">Pro 1800</button>
+            <button class="fs-tab"        data-value="model2">Pro 2200</button>
+            <button class="fs-tab"        data-value="model3">Max 2800</button>
+          </div>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Colour</p>
+          <div class="fs-colors">
+            <button class="fs-color active" style="background:#d4d4d4" data-color="Silver"     aria-label="Silver"></button>
+            <button class="fs-color"        style="background:#1a1a2e" data-color="Midnight"   aria-label="Midnight"></button>
+            <button class="fs-color"        style="background:#ff3b3b" data-color="Spyro Red"  aria-label="Spyro Red"></button>
+            <button class="fs-color"        style="background:#1d4ed8" data-color="Steel Blue" aria-label="Steel Blue"></button>
+          </div>
+          <span class="fs-color-name">Silver</span>
+        </div>
+
+        <div class="fs-group">
+          <p class="fs-label">Size</p>
+          <div class="fs-tabs" data-fan="floor" data-type="size">
+            <button class="fs-tab active" data-value="s">S — 600 mm</button>
+            <button class="fs-tab"        data-value="m">M — 900 mm</button>
+            <button class="fs-tab"        data-value="l">L — 1200 mm</button>
+          </div>
+        </div>
+
+        <div class="fan-spec-panel" id="floor-spec-panel">
+          <div class="fan-spec-row"><span>Model</span><strong id="floor-s-model">Pro 1800</strong></div>
+          <div class="fan-spec-row"><span>Airflow</span><strong id="floor-s-airflow">1,800 m³/h</strong></div>
+          <div class="fan-spec-row"><span>Motor</span><strong id="floor-s-motor">0.55 kW</strong></div>
+          <div class="fan-spec-row"><span>Noise Level</span><strong id="floor-s-noise">52 dB</strong></div>
+        </div>
+
+        <a href="#contact" class="config-enquire">Request Quote &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CONFIGURATOR SECTION
+══════════════════════════════════════════════════════ -->
+<section id="configurator" class="site-section">
+  <div class="section-wrap">
+    <header class="section-header reveal">
+      <span class="section-tag">Interactive Configurator</span>
+      <h2>Experience Spyro HVLS Up Close</h2>
+      <p>Adjust speed, change colour, and explore the fan in full 3D.</p>
+    </header>
+
+    <div class="config-layout">
+
+      <!-- 3D Viewer -->
+      <div class="config-viewer">
+        <canvas id="config-canvas"></canvas>
+        <div id="config-fallback">
+          <img src="fan.png" alt="Fan preview" onerror="this.src='spyro24.jpg'"/>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="config-controls">
+
+        <!-- Speed -->
+        <div class="ctrl-group">
+          <div class="ctrl-label-row">
+            <label class="ctrl-label" for="speed-slider">Fan Speed</label>
+            <span class="rpm-display" id="rpm-display">0 RPM</span>
+          </div>
+          <input type="range" id="speed-slider" class="speed-slider" min="0" max="100" value="0" aria-label="Fan speed"/>
+          <div class="slider-ticks"><span>Off</span><span>Max</span></div>
+        </div>
+
+        <!-- Colour -->
+        <div class="ctrl-group">
+          <label class="ctrl-label">Fan Colour</label>
+          <div class="colour-picker" id="colour-picker">
+            <button class="color-btn active" data-color="#e8e8e8" style="background:#e8e8e8" title="White"  aria-label="White"></button>
+            <button class="color-btn"        data-color="#2563eb" style="background:#2563eb" title="Blue"   aria-label="Blue"></button>
+            <button class="color-btn"        data-color="#ff3b3b" style="background:#ff3b3b" title="Red"    aria-label="Red"></button>
+            <button class="color-btn"        data-color="#888888" style="background:#888888" title="Grey"   aria-label="Grey"></button>
+            <button class="color-btn"        data-color="#1a1a1a" style="background:#1a1a1a" title="Black"  aria-label="Black"></button>
+            <button class="color-btn"        data-color="#ffd600" style="background:#ffd600" title="Yellow" aria-label="Yellow"></button>
+          </div>
+        </div>
+
+        <!-- Live specs — dynamic, updated by RPM slider -->
+        <div class="live-specs">
+          <div class="spec-row"><span>Noise Level</span><strong id="spec-noise">30.0 dB</strong></div>
+          <div class="spec-row"><span>Energy Use</span><strong id="spec-energy">0.30 kW</strong></div>
+          <div class="spec-row"><span>Torque</span><strong id="spec-torque">10.0 Nm</strong></div>
+          <div class="spec-row"><span>Airflow</span><strong id="spec-airflow">0 m³/min</strong></div>
+        </div>
+
+        <a href="#contact" class="config-enquire">Request This Model &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FEATURES SECTION
+══════════════════════════════════════════════════════ -->
+<section id="features" class="site-section alt-bg">
+
+  <div class="section-wrap">
+    <header class="section-header reveal">
+      <span class="section-tag">Why Spyro</span>
+      <h2>Built Different</h2>
+      <p>Purpose-built for demanding industrial environments where reliability is non-negotiable.</p>
+    </header>
+
+    <div class="hex-grid-wrap">
+
+      <!-- ══ DECORATIVE BACKGROUND HEX LAYER (absolute, centred on hex-grid) ══ -->
+      <div class="hex-bg-layer" aria-hidden="true">
+        <div class="hbl-row hbl-odd">
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div>
+        </div>
+        <div class="hbl-row hbl-even">
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div>
+        </div>
+        <div class="hbl-row hbl-odd">
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div>
+        </div>
+        <div class="hbl-row hbl-even">
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div>
+        </div>
+        <div class="hbl-row hbl-odd">
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div><div class="hbl-hex"></div><div class="hbl-hex"></div>
+          <div class="hbl-hex"></div>
+        </div>
+      </div>
+
+      <div class="hex-grid">
+
+      <!-- ── Row 1 — 5 feature hexagons (odd) ── -->
+      <div class="hex-row hex-row--odd">
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:0">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M16 16m-10 0a10 10 0 1 0 20 0 10 10 0 1 0-20 0" stroke="currentColor" stroke-width="1.8" opacity=".25"/>
+                  <path d="M8 13c2-4 7-5 11-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 18c2-5 8-7 13-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                  <path d="M4 23c2-5 9-8 14-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+                  <circle cx="22" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <span class="hex-label">High<br>Airflow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:1">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M19 3l-9 14h9l-7 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="hex-label">Energy<br>Efficient</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:2">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M7 14c0 5 4 9 9 9s9-4 9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M10 23v3M16 25v3M22 23v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+                  <line x1="5" y1="28" x2="27" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+                  <path d="M13 8c1-2 5-2 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+                </svg>
+              </div>
+              <span class="hex-label">Low<br>Noise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:3">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 8v2M16 22v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 12c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2-2 3-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="16" cy="22" r="1" fill="currentColor"/>
+                </svg>
+              </div>
+              <span class="hex-label">Cost<br>Efficient</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:4">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <rect x="2" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M20 14h5l4 5v3h-9V14z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="9" cy="25" r="2.2" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="23" cy="25" r="2.2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M7 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3" stroke="currentColor" stroke-width="1.5" opacity=".5"/>
+                </svg>
+              </div>
+              <span class="hex-label">Free<br>Shipping</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hex-row--odd -->
+
+      <!-- ── Row 2 — 4 feature hexagons (even, staggered) ── -->
+      <div class="hex-row hex-row--even">
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:5">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M22 8c0 3.3-2.7 6-6 6S10 11.3 10 8s2.7-6 6-6 6 2.7 6 6z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 27c.5-5 5-9 11-9s10.5 4 11 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M23 18l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+                  <path d="M27 21h-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+                </svg>
+              </div>
+              <span class="hex-label">24/7<br>Support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:6">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M26 12a10 10 0 0 0-19.3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M22 5l4 7-7 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 20a10 10 0 0 0 19.3-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M10 27l-4-7 7-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="hex-label">Easy<br>Returns</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:7">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <path d="M16 3l12 5.5v8C28 23.4 22.7 28.4 16 30 9.3 28.4 4 23.4 4 16.5v-8L16 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M11 16.5l3.5 3.5 7-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="hex-label">Durable<br>Build</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hex-wrap hx-reveal" style="--hx-i:8">
+          <div class="hexagon">
+            <div class="hex-inner">
+              <div class="hex-icon">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <circle cx="16" cy="16" r="4.5" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 4v3M16 25v3M4 16h3M25 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7.8 7.8l2.1 2.1M22.1 22.1l2.1 2.1M22.1 7.8l-2.1 2.1M9.9 22.1l-2.1 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+                  <circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2.5 3" opacity=".35"/>
+                </svg>
+              </div>
+              <span class="hex-label">Industrial<br>Grade</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hex-row--even -->
+
+    </div><!-- /hex-grid -->
+
+    </div><!-- /hex-grid-wrap -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     GALLERY SECTION
+══════════════════════════════════════════════════════ -->
+<section id="gallery" class="site-section alt-bg">
+  <div class="section-wrap">
+
+    <!-- Section header -->
+    <div class="gal-header reveal">
+      <span class="section-tag">Gallery</span>
+      <h2 class="gal-main-heading">Craftsmanship Meets Scale</h2>
+    </div>
+
+    <!-- PART 1: Manufacturing showcase — local video left, text right -->
+    <div class="gal-duo reveal">
+      <div class="gal-duo-media">
+        <video class="gal-local-video" src="About_us_videoMain.mp4"
+          autoplay muted loop playsinline preload="auto"
+          aria-label="Spyro Fans — about us"></video>
+      </div>
+      <div class="gal-duo-text">
+        <span class="section-tag">Manufacturing</span>
+        <h3 class="gal-duo-heading">Engineered for Excellence</h3>
+        <p class="gal-duo-sub">Every Spyro fan is built to precision standards in our certified facility — where aerospace-grade materials meet industrial-scale production processes.</p>
+        <ul class="gallery-bullets">
+          <li>Aerospace-grade blade engineering</li>
+          <li>ISO-certified manufacturing facility</li>
+          <li>Built for 24×7 industrial reliability</li>
+          <li>Multi-stage quality control at every step</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PART 2: Real-world performance — text left, YouTube right -->
+    <div class="gal-duo reveal">
+      <div class="gal-duo-text">
+        <span class="section-tag">Performance</span>
+        <h3 class="gal-duo-heading">See Performance in Real Environments</h3>
+        <p class="gal-duo-sub">Watch Spyro HVLS fans delivering powerful, silent airflow across warehouses, factories, and large commercial spaces — real results in real conditions.</p>
+        <ul class="gallery-bullets">
+          <li>Real installations across industries</li>
+          <li>Airflow demonstration at scale</li>
+          <li>Large-space cooling in action</li>
+        </ul>
+        <div class="media-btns" style="margin-top:4px">
+          <a href="https://youtube.com/@spyrofans?si=f7i2a7KP4dBK7Kn3"
+             target="_blank" rel="noopener noreferrer"
+             class="media-btn media-btn-yt">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            Watch More on YouTube
+          </a>
+          <a href="https://www.instagram.com/spyrofans?igsh=MXJnMnVucDhpY3IzNg=="
+             target="_blank" rel="noopener noreferrer"
+             class="media-btn media-btn-ig">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+      <div class="gal-duo-media">
+        <div class="yt-embed-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/cUojTYS9_nI"
+            title="Spyro Fans in Action"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 3: Horizontal media carousel -->
+    <div class="gal-strip-section reveal">
+      <h3 class="gal-strip-heading">From the Factory Floor</h3>
+      <div class="gal-track-outer" id="gal-track-outer">
+        <div class="gal-track" id="gal-track">
+
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/DSC_0027.JPG" data-gal-type="image">
+            <img src="Selected Spyro Photos/DSC_0027.JPG" loading="lazy" alt="Spyro fan installation">
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/DSC_0044.JPG" data-gal-type="image">
+            <img src="Selected Spyro Photos/DSC_0044.JPG" loading="lazy" alt="">
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/DSC_0057.JPG" data-gal-type="image">
+            <img src="Selected Spyro Photos/DSC_0057.JPG" loading="lazy" alt="">
+          </div>
+          <div class="gal-card gal-card-vid" data-gal-src="Selected Spyro Photos/DSC_0034.MOV" data-gal-type="video">
+            <div class="gal-card-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/DSC_0066.JPG" data-gal-type="image">
+            <img src="Selected Spyro Photos/DSC_0066.JPG" loading="lazy" alt="">
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/DSC_0070.JPG" data-gal-type="image">
+            <img src="Selected Spyro Photos/DSC_0070.JPG" loading="lazy" alt="">
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/IMG20260217174138.jpg" data-gal-type="image">
+            <img src="Selected Spyro Photos/IMG20260217174138.jpg" loading="lazy" alt="">
+          </div>
+          <div class="gal-card" data-gal-src="Selected Spyro Photos/IMG20260217174252.jpg" data-gal-type="image">
+            <img src="Selected Spyro Photos/IMG20260217174252.jpg" loading="lazy" alt="">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════════════════════ -->
+<section id="contact" class="site-section">
+  <div class="section-wrap contact-wrap">
+
+    <div class="contact-info reveal">
+      <span class="section-tag">Get in Touch</span>
+      <h2>Request a Free<br/>Site Assessment</h2>
+      <p>Our engineers will calculate the exact fan specification for your space — free, no commitment required.</p>
+      <div class="contact-details">
+        <div class="cd">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.4 3.38a2 2 0 0 1 1.99-2.18H6.4a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>+91 98765 43210</span>
+        </div>
+        <div class="cd">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>sales@spyrofans.com</span>
+        </div>
+        <div class="cd">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Hyderabad &amp; Bangalore, India</span>
+        </div>
+      </div>
+
+      <!-- Social media links -->
+      <div class="contact-socials">
+        <p class="socials-label">Follow &amp; Connect</p>
+        <div class="socials-row">
+
+          <!-- YouTube -->
+          <a href="https://youtube.com/@spyrofans?si=f7i2a7KP4dBK7Kn3" target="_blank" rel="noopener noreferrer" class="social-pill social-yt" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/spyrofans?igsh=MXJnMnVucDhpY3IzNg==" target="_blank" rel="noopener noreferrer" class="social-pill social-ig" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="#" class="social-pill social-wa" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.012L2 22l5.098-1.33A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <form id="contact-form" class="contact-form reveal" novalidate>
+      <div class="form-row">
+        <div class="fg">
+          <label for="f-name">Full Name</label>
+          <input type="text" id="f-name" placeholder="John Smith" required/>
+        </div>
+        <div class="fg">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" placeholder="john@company.com" required/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" placeholder="+91 98000 00000"/>
+        </div>
+        <div class="fg">
+          <label for="f-product">Product</label>
+          <select id="f-product" required>
+            <option value="">— Select model —</option>
+            <option>Spyro 24 (7.3 m)</option>
+            <option>Spyro 20 (6.1 m)</option>
+            <option>Spyro 18 (5.5 m)</option>
+            <option>Spyro 16 (4.9 m)</option>
+            <option>Spyro 12 (3.7 m)</option>
+            <option>Not sure — need advice</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg full">
+        <label for="f-msg">Your Space</label>
+        <textarea id="f-msg" rows="4" placeholder="Floor area, ceiling height, current cooling challenges..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        <span>Get a Free Quote</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <p class="form-success" id="form-success" style="display:none">Thank you! We will be in touch shortly.</p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-wrap">
+
+    <!-- Col 1: Brand + India image -->
+    <div class="footer-brand">
+      <img src="logo.png" alt="Spyro Fans" class="footer-logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="footer-logo-fb" style="display:none">SPYRO<em>FANS</em></span>
+      <p>Industrial HVLS fan manufacturer.<br/>Engineered for scale and performance.</p>
+      <img src="india.png" class="footer-india-img" alt="Proudly Made in India" title="Proudly Made in India"
+           onerror="this.src='india.jpg'"/>
+    </div>
+
+    <!-- Col 2: Office Address -->
+    <div class="fn-col fn-addr">
+      <h4>Office Address</h4>
+      <address>
+        <strong>Spyrofans</strong>
+        #6-2-982, 3rd Floor,<br/>
+        GNR Arcade, Khairatabad,<br/>
+        Hyderabad &ndash; 500004
+      </address>
+    </div>
+
+    <!-- Col 3: Factory Address -->
+    <div class="fn-col fn-addr">
+      <h4>Factory Address</h4>
+      <address>
+        <strong>Spyrofans</strong>
+        Survey 161/A, Opp. R K Distilleries,<br/>
+        Yellampet Village, Medchal Mandal,<br/>
+        Medchal Malkajgiri District,<br/>
+        Telangana &ndash; 501401
+      </address>
+    </div>
+
+    <!-- Col 4: Useful Links -->
+    <div class="fn-col">
+      <h4>Useful Links</h4>
+      <a href="#products">Products</a>
+      <a href="#features">Features</a>
+      <a href="#configurator">Configurator</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <button class="fn-link-btn" id="fn-brochure-btn">Download Brochure</button>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Spyro Fans. All rights reserved.</p>
+    <p>Engineered for Industry.</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════
+     SCRIPTS
+     Order: GSAP UMD → fallback timer → importmap → module
+══════════════════════════════════════════════════════ -->
+
+<!-- 1. GSAP UMD (before importmap so window.gsap is ready) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- 2. Hard fallback: dismiss loader after 10s if JS module fails -->
+<script>
+  (function () {
+    setTimeout(function () {
+      var ls = document.getElementById('loader');
+      if (ls && !ls.classList.contains('loader-hidden')) {
+        ls.style.transition = 'opacity 0.6s ease';
+        ls.style.opacity = '0';
+        setTimeout(function () { ls.classList.add('loader-hidden'); }, 700);
+      }
+    }, 10000);
+  }());
+</script>
+
+<!-- 3. importmap — MANDATORY: GLTFLoader uses bare `import from 'three'` internally -->
+<script type="importmap">
+{
+  "imports": {
+    "three":                          "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/":                  "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<!-- 4. Main module -->
+<script type="module" src="script.js"></script>
+
+<!-- 5. UI features: FAB stack + support modal (no module needed) -->
+<script>
+/* Wrapped in DOMContentLoaded so the FAB/modal HTML (which comes
+   AFTER this script tag) is fully parsed before we query it. */
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  /* ── Video Inspection Modal ─────────────────────── */
+  var vmodal      = document.getElementById('video-modal');
+  var vmodalClose = document.getElementById('vmodal-close');
+  var vmodalDone  = document.getElementById('vmodal-done');
+  var fabVideo    = document.getElementById('fab-video');
+
+  function openVModal() {
+    var formStep    = document.getElementById('vmodal-form-step');
+    var successStep = document.getElementById('vmodal-success-step');
+    if (formStep)    formStep.classList.remove('hidden');
+    if (successStep) successStep.classList.add('hidden');
+    vmodal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVModal() {
+    vmodal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (fabVideo)    { fabVideo.addEventListener('click', openVModal); }
+  if (vmodalClose) { vmodalClose.addEventListener('click', closeVModal); }
+  if (vmodalDone)  { vmodalDone.addEventListener('click', closeVModal); }
+
+  if (vmodal) {
+    vmodal.addEventListener('click', function (e) {
+      if (e.target === vmodal) { closeVModal(); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && vmodal.classList.contains('open')) { closeVModal(); }
+    });
+  }
+
+  var formVideo = document.getElementById('form-video');
+  if (formVideo) {
+    formVideo.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nameEl  = formVideo.querySelector('[name="name"]');
+      var phoneEl = formVideo.querySelector('[name="phone"]');
+      if (!nameEl.value.trim())  { nameEl.focus();  return; }
+      if (!phoneEl.value.trim()) { phoneEl.focus(); return; }
+      document.getElementById('vmodal-form-step').classList.add('hidden');
+      document.getElementById('vmodal-success-step').classList.remove('hidden');
+      formVideo.reset();
+    });
+  }
+
+  /* ── Footer "Download Brochure" link ────────────── */
+  var fnBrochureBtn = document.getElementById('fn-brochure-btn');
+  if (fnBrochureBtn) {
+    fnBrochureBtn.addEventListener('click', function () {
+      var toast = document.createElement('div');
+      toast.className = 'spyro-toast';
+      toast.textContent = 'Brochure download coming soon!';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function () { toast.classList.add('show'); });
+      setTimeout(function () {
+        toast.classList.remove('show');
+        setTimeout(function () { toast.remove(); }, 400);
+      }, 2800);
+    });
+  }
+
+  /* ── Support Modal ─────────────────────────────── */
+  var modal     = document.getElementById('support-modal');
+  var closeBtn  = document.getElementById('smodal-close');
+  var doneBtn   = document.getElementById('smodal-done');
+  var fabSupport= document.getElementById('fab-support');
+
+  function showStep(id) {
+    modal.querySelectorAll('.smodal-step').forEach(function(s){ s.classList.add('hidden'); });
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  function openModal() {
+    showStep('smodal-step1');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (fabSupport) { fabSupport.addEventListener('click', openModal); }
+  if (closeBtn)   { closeBtn.addEventListener('click', closeModal); }
+  if (doneBtn)    { doneBtn.addEventListener('click', closeModal); }
+
+  /* Close on overlay click */
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) { closeModal(); }
+    });
+    /* Close on Escape */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) { closeModal(); }
+    });
+  }
+
+  /* Option buttons → go to step */
+  document.querySelectorAll('.smodal-opt, .smodal-back').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showStep(btn.getAttribute('data-goto'));
+    });
+  });
+
+  /* API base — keep in sync with script.js SPYRO_API */
+  var MODAL_API = 'http://localhost:3001';
+
+  function apiPost(endpoint, payload, onSuccess, onError) {
+    fetch(MODAL_API + endpoint, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) { onSuccess(data); } else { onError(data.message); }
+    })
+    .catch(function() {
+      /* Graceful fallback — show success even if server is unreachable */
+      onSuccess({ success: true });
+    });
+  }
+
+  /* Existing customer form submit → POST /api/service-request */
+  var formExisting = document.getElementById('form-existing');
+  if (formExisting) {
+    formExisting.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var d = Object.fromEntries(new FormData(formExisting));
+      var payload = {
+        invoiceNumber: d['invoice'] || d['invoiceNumber'] || '',
+        name:          d['name']    || '',
+        phone:         d['phone']   || '',
+        email:         d['email']   || '',
+        model:         d['model']   || '',
+        issue:         d['issue']   || ''
+      };
+      var submitBtn = formExisting.querySelector('[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; }
+      apiPost('/api/service-request', payload,
+        function() {
+          document.getElementById('smodal-success-msg').textContent = 'Request submitted.';
+          document.getElementById('smodal-success-sub').textContent = 'Our customer care will contact you soon.';
+          showStep('smodal-success');
+          formExisting.reset();
+          if (submitBtn) { submitBtn.disabled = false; }
+        },
+        function(msg) {
+          alert(msg || 'Submission failed. Please try again.');
+          if (submitBtn) { submitBtn.disabled = false; }
+        }
+      );
+    });
+  }
+
+  /* New customer form submit → POST /api/new-lead */
+  var formNew = document.getElementById('form-new');
+  if (formNew) {
+    formNew.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var d = Object.fromEntries(new FormData(formNew));
+      var payload = {
+        name:  d['name']  || '',
+        phone: d['phone'] || '',
+        email: d['email'] || ''
+      };
+      var submitBtn = formNew.querySelector('[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; }
+      apiPost('/api/new-lead', payload,
+        function() {
+          document.getElementById('smodal-success-msg').textContent = 'Inquiry received!';
+          document.getElementById('smodal-success-sub').textContent = 'Our sales team will contact you soon.';
+          showStep('smodal-success');
+          formNew.reset();
+          if (submitBtn) { submitBtn.disabled = false; }
+        },
+        function(msg) {
+          alert(msg || 'Submission failed. Please try again.');
+          if (submitBtn) { submitBtn.disabled = false; }
+        }
+      );
+    });
+  }
+
+  /* ── Gallery Carousel ──────────────────────────── */
+  (function () {
+    var track = document.getElementById('gal-track');
+    var outer = document.getElementById('gal-track-outer');
+    if (!track || !outer) { return; }
+
+    /* Duplicate cards for seamless infinite loop */
+    var origCards = Array.from(track.children);
+    origCards.forEach(function (c) { track.appendChild(c.cloneNode(true)); });
+
+    var speed      = 0.55;   /* px per frame */
+    var pos        = 0;
+    var paused     = false;
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragBasePos = 0;
+
+    function halfWidth() { return track.scrollWidth / 2; }
+
+    function tick() {
+      if (!paused && !isDragging) {
+        pos += speed;
+        var h = halfWidth();
+        if (pos >= h) { pos -= h; }
+        track.style.transform = 'translateX(-' + pos + 'px)';
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* Pause on hover */
+    outer.addEventListener('mouseenter', function () { paused = true; });
+    outer.addEventListener('mouseleave', function () { paused = false; });
+
+    /* Mouse drag */
+    outer.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      dragStartX  = e.clientX;
+      dragBasePos = pos;
+      outer.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!isDragging) { return; }
+      var delta = dragStartX - e.clientX;
+      var h = halfWidth();
+      pos = ((dragBasePos + delta) % h + h) % h;
+      track.style.transform = 'translateX(-' + pos + 'px)';
+    });
+    window.addEventListener('mouseup', function () {
+      if (isDragging) { isDragging = false; outer.style.cursor = 'grab'; }
+    });
+
+    /* Touch drag */
+    outer.addEventListener('touchstart', function (e) {
+      isDragging  = true;
+      dragStartX  = e.touches[0].clientX;
+      dragBasePos = pos;
+    }, { passive: true });
+    outer.addEventListener('touchmove', function (e) {
+      if (!isDragging) { return; }
+      var delta = dragStartX - e.touches[0].clientX;
+      var h = halfWidth();
+      pos = ((dragBasePos + delta) % h + h) % h;
+      track.style.transform = 'translateX(-' + pos + 'px)';
+    }, { passive: true });
+    outer.addEventListener('touchend', function () { isDragging = false; });
+
+    tick();
+  }());
+
+  /* ── Gallery Lightbox ──────────────────────────── */
+  (function () {
+    var lb        = document.getElementById('gal-lightbox');
+    var lbContent = document.getElementById('gal-lb-content');
+    var lbClose   = document.getElementById('gal-lb-close');
+    if (!lb) { return; }
+
+    function openLb(src, type) {
+      lbContent.innerHTML = '';
+      if (type === 'video') {
+        var v = document.createElement('video');
+        v.src      = src;
+        v.controls = true;
+        v.autoplay = true;
+        v.playsInline = true;
+        lbContent.appendChild(v);
+      } else {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        lbContent.appendChild(img);
+      }
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbContent.innerHTML = '';
+    }
+
+    if (lbClose) { lbClose.addEventListener('click', closeLb); }
+    lb.addEventListener('click', function (e) { if (e.target === lb) { closeLb(); } });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('open')) { closeLb(); }
+    });
+
+    /* Event delegation on the track — works for originals + clones */
+    var track = document.getElementById('gal-track');
+    if (track) {
+      track.addEventListener('click', function (e) {
+        /* Don't fire if user was dragging */
+        var card = e.target.closest('[data-gal-src]');
+        if (!card) { return; }
+        openLb(card.dataset.galSrc, card.dataset.galType || 'image');
+      });
+    }
+  }());
+
+  /* ── Download Brochure ─────────────────────────── */
+  var fabBrochure = document.getElementById('fab-brochure');
+  if (fabBrochure) {
+    fabBrochure.addEventListener('click', function() {
+      console.log('[Spyro] Download brochure — PDF endpoint to be wired.');
+      /* When PDF is ready: window.open('brochure.pdf', '_blank'); */
+      var toast = document.createElement('div');
+      toast.className = 'spyro-toast';
+      toast.textContent = 'Brochure download coming soon!';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() { toast.classList.add('show'); });
+      setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() { toast.remove(); }, 400);
+      }, 2800);
+    });
+  }
+
+});
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     GALLERY LIGHTBOX
+══════════════════════════════════════════════════════ -->
+<div id="gal-lightbox" class="gal-lb-overlay" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="gal-lb-close" id="gal-lb-close" aria-label="Close">&times;</button>
+  <div class="gal-lb-content" id="gal-lb-content"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     FLOATING ACTION BUTTON STACK
+══════════════════════════════════════════════════════ -->
+<div class="fab-stack" id="fab-stack" aria-label="Quick actions">
+
+  <!-- Free Video Inspection -->
+  <button class="fab-btn fab-video" id="fab-video" aria-label="Free Video Inspection">
+    <span class="fab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="23 7 16 12 23 17 23 7"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+    </span>
+    <span class="fab-label">Free Video Inspection</span>
+  </button>
+
+  <!-- Download Brochure -->
+  <button class="fab-btn fab-brochure" id="fab-brochure" aria-label="Download Brochure">
+    <span class="fab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </span>
+    <span class="fab-label">Download Brochure</span>
+  </button>
+
+  <!-- Customer Support -->
+  <button class="fab-btn fab-support" id="fab-support" aria-label="Customer Support">
+    <span class="fab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- headband arc -->
+        <path d="M4 12a8 8 0 0 1 16 0"/>
+        <!-- left ear cup -->
+        <rect x="1.5" y="11" width="5" height="7" rx="2.5"/>
+        <!-- right ear cup -->
+        <rect x="17.5" y="11" width="5" height="7" rx="2.5"/>
+        <!-- boom mic -->
+        <path d="M22.5 15.5c0 3-2.5 5-5 5H15"/>
+      </svg>
+    </span>
+    <span class="fab-label">Customer Support</span>
+  </button>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer"
+     class="fab-btn fab-wa" aria-label="Chat on WhatsApp">
+    <span class="fab-icon">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.012L2 22l5.098-1.33A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+      </svg>
+    </span>
+    <span class="fab-label">Chat on WhatsApp</span>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     VIDEO INSPECTION MODAL
+══════════════════════════════════════════════════════ -->
+<div id="video-modal" class="smodal-overlay" role="dialog" aria-modal="true" aria-label="Free Video Inspection">
+  <div class="smodal-box">
+    <button class="smodal-close" id="vmodal-close" aria-label="Close">&times;</button>
+
+    <!-- Form step -->
+    <div class="smodal-step" id="vmodal-form-step">
+      <div class="vmodal-header">
+        <div class="vmodal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <h3>Free Site Inspection via Video Call</h3>
+        <p>Our engineers will assess your space and recommend the right fan — live, on video.</p>
+      </div>
+      <form class="smodal-form" id="form-video" novalidate>
+        <div class="smodal-field">
+          <label for="vf-name">Name <span style="color:var(--red)">*</span></label>
+          <input type="text" id="vf-name" name="name" placeholder="Your full name" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="vf-phone">WhatsApp Number <span style="color:var(--red)">*</span></label>
+          <input type="tel" id="vf-phone" name="phone" placeholder="+91 XXXXX XXXXX" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="vf-msg">Message <span style="color:var(--dim)">(optional)</span></label>
+          <textarea id="vf-msg" name="message" rows="3"
+                    placeholder="Describe your space — floor area, ceiling height, industry…"></textarea>
+        </div>
+        <button type="submit" class="smodal-submit">Request Video Call</button>
+      </form>
+    </div>
+
+    <!-- Success step -->
+    <div class="smodal-step hidden" id="vmodal-success-step">
+      <div class="smodal-success">
+        <div class="smodal-success-icon">✅</div>
+        <h3 style="color:var(--text)">Request Submitted!</h3>
+        <p>Our team will contact you shortly on WhatsApp.</p>
+        <button class="smodal-submit" id="vmodal-done" style="margin-top:20px">Done</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     CUSTOMER SUPPORT MODAL
+══════════════════════════════════════════════════════ -->
+<div id="support-modal" class="smodal-overlay" role="dialog" aria-modal="true" aria-label="Customer Support">
+  <div class="smodal-box">
+    <button class="smodal-close" id="smodal-close" aria-label="Close">&times;</button>
+
+    <!-- STEP 1: Choose type -->
+    <div class="smodal-step" id="smodal-step1">
+      <h3>How can we help you?</h3>
+      <div class="smodal-options">
+        <button class="smodal-opt" data-goto="smodal-existing">
+          <span>🔧</span> Existing Product Service
+        </button>
+        <button class="smodal-opt" data-goto="smodal-new">
+          <span>🛒</span> New Purchase Inquiry
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2A: Existing customer -->
+    <div class="smodal-step hidden" id="smodal-existing">
+      <button class="smodal-back" data-goto="smodal-step1">&#8592; Back</button>
+      <h3>Existing Product Service</h3>
+      <form class="smodal-form" id="form-existing" novalidate>
+        <div class="smodal-field">
+          <label for="ef-invoice">Invoice Number <span style="color:var(--red)">*</span></label>
+          <input type="text" id="ef-invoice" name="invoice" placeholder="INV-XXXXXX" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="ef-name">Name <span style="color:var(--red)">*</span></label>
+          <input type="text" id="ef-name" name="name" placeholder="Your full name" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="ef-phone">Phone <span style="color:var(--red)">*</span></label>
+          <input type="tel" id="ef-phone" name="phone" placeholder="+91 XXXXX XXXXX" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="ef-email">Email <span style="color:var(--dim)">(optional)</span></label>
+          <input type="email" id="ef-email" name="email" placeholder="you@example.com"/>
+        </div>
+        <div class="smodal-field">
+          <label for="ef-model">Fan Model</label>
+          <select id="ef-model" name="model">
+            <option value="">Select model</option>
+            <option>Spyro 24</option>
+            <option>Spyro 20</option>
+            <option>Spyro 18</option>
+            <option>Spyro 16</option>
+            <option>Spyro 12</option>
+            <option>Elevate 600</option>
+            <option>Elevate 450</option>
+            <option>Elevate 300</option>
+            <option>Floor Fan</option>
+          </select>
+        </div>
+        <div class="smodal-field">
+          <label for="ef-issue">Issue Description <span style="color:var(--red)">*</span></label>
+          <textarea id="ef-issue" name="issue" rows="3" placeholder="Describe the issue…" required></textarea>
+        </div>
+        <button type="submit" class="smodal-submit">Submit Request</button>
+      </form>
+    </div>
+
+    <!-- STEP 2B: New customer -->
+    <div class="smodal-step hidden" id="smodal-new">
+      <button class="smodal-back" data-goto="smodal-step1">&#8592; Back</button>
+      <h3>New Purchase Inquiry</h3>
+      <form class="smodal-form" id="form-new" novalidate>
+        <div class="smodal-field">
+          <label for="nf-name">Name <span style="color:var(--red)">*</span></label>
+          <input type="text" id="nf-name" name="name" placeholder="Your full name" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="nf-phone">Phone <span style="color:var(--red)">*</span></label>
+          <input type="tel" id="nf-phone" name="phone" placeholder="+91 XXXXX XXXXX" required/>
+        </div>
+        <div class="smodal-field">
+          <label for="nf-email">Email <span style="color:var(--dim)">(optional)</span></label>
+          <input type="email" id="nf-email" name="email" placeholder="you@example.com"/>
+        </div>
+        <button type="submit" class="smodal-submit">Send Inquiry</button>
+      </form>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="smodal-step hidden" id="smodal-success">
+      <div class="smodal-success">
+        <div class="smodal-success-icon">✅</div>
+        <h3 id="smodal-success-msg">Request submitted.</h3>
+        <p id="smodal-success-sub">Our team will contact you soon.</p>
+        <button class="smodal-submit" id="smodal-done" style="margin-top:20px">Done</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     FLOATING WHATSAPP CHAT BUTTON (legacy — hidden by fab-stack)
+══════════════════════════════════════════════════════ -->
+<a href="#" class="wa-float" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
+  <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.012L2 22l5.098-1.33A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+  </svg>
+  <span class="wa-label">Chat with us</span>
+  <span class="wa-ping" aria-hidden="true"></span>
+</a>
+
+<!-- ══════════════════════════════════════════════════════
+     CUSTOM CURSOR SYSTEM
+══════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  /* Only activate on devices with a precise pointer (mouse). Touch-only = skip. */
+  if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) { return; }
+
+  var dot   = document.getElementById('cursor-dot');
+  var trail = document.getElementById('cursor-trail');
+  if (!dot || !trail) { return; }
+
+  /* Engage CSS cursor-hiding by adding class to <html> */
+  document.documentElement.classList.add('js-cursor');
+
+  /* — State ——————————————————————————————————————————— */
+  var mouseX = -300, mouseY = -300;  /* off-screen initial */
+  var trailX = -300, trailY = -300;
+  var rotation = 0;
+  var curSpeed = 0.55;               /* deg / frame  (slow = premium feel) */
+  var scale    = 1;
+  var isHover  = false;
+  var shown    = false;
+
+  /* — Reveal on first real mouse move ————————————————— */
+  document.addEventListener('mousemove', function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!shown) {
+      trailX = mouseX;               /* snap trail to cursor position on entry */
+      trailY = mouseY;
+      shown  = true;
+      dot.style.opacity   = '1';
+      trail.style.opacity = '0.85';
+    }
+  });
+
+  /* — Hide / show on viewport leave / enter —————————— */
+  document.addEventListener('mouseleave', function () {
+    dot.style.opacity   = '0';
+    trail.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', function () {
+    if (shown) {
+      dot.style.opacity   = '1';
+      trail.style.opacity = '0.85';
+    }
+  });
+
+  /* — Hover detection (event delegation) ————————————— */
+  document.addEventListener('mouseover', function (e) {
+    isHover = !!e.target.closest(
+      'a, button, [role="button"], label, summary,' +
+      ' .gal-card, .media-btn, .fab-btn, .smodal-opt,' +
+      ' .fan-card, .feature-card, .config-card'
+    );
+  });
+
+  /* — RAF animation loop —————————————————————————————— */
+  requestAnimationFrame(function tick() {
+
+    /* Lerp trail toward cursor — faster on hover for snappier feel */
+    var ease = isHover ? 0.2 : 0.1;
+    trailX += (mouseX - trailX) * ease;
+    trailY += (mouseY - trailY) * ease;
+
+    /* Ease rotation speed: 0.55 deg/frame idle (~11s/rev), 2.0 hover (~3s/rev) */
+    var targetSpeed = isHover ? 2.0 : 0.55;
+    curSpeed += (targetSpeed - curSpeed) * 0.06;
+    rotation += curSpeed;
+    if (rotation >= 360) { rotation -= 360; }
+
+    /* Ease scale */
+    var targetScale = isHover ? 1.55 : 1;
+    scale += (targetScale - scale) * 0.1;
+
+    /* Dot — follows mouse exactly, no lag */
+    dot.style.transform =
+      'translate(' + (mouseX - 3.5).toFixed(1) + 'px,' +
+                     (mouseY - 3.5).toFixed(1) + 'px)';
+
+    /* Trail — lagged position + rotation + scale */
+    trail.style.transform =
+      'translate(' + (trailX -  9).toFixed(2) + 'px,' +
+                     (trailY - 12).toFixed(2) + 'px)' +
+      ' rotate('    + rotation.toFixed(1)      + 'deg)' +
+      ' scale('     + scale.toFixed(3)          + ')';
+
+    /* Subtle glow — intensifies on hover */
+    trail.style.filter = isHover
+      ? 'drop-shadow(0 0 7px rgba(0,123,201,0.9))'
+      : 'drop-shadow(0 0 3px rgba(0,123,201,0.4))';
+
+    requestAnimationFrame(tick);
+  });
+
+}());
+</script>
+
+<!-- ── Honeycomb reveal — lightweight IntersectionObserver for .hx-reveal ── -->
+<script>
+(function () {
+  'use strict';
+  var items = document.querySelectorAll('.hx-reveal');
+  if (!items.length || !window.IntersectionObserver) {
+    items.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(function (el) { obs.observe(el); });
+}());
+</script>
+
+</body>
+</html>

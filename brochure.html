@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spyro Fans — Company Brochure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #005CE8;
+      --blue-dark:  #003FA3;
+      --blue-light: #EFF6FF;
+      --blue-mid:   #DBEAFE;
+      --dark:       #0F172A;
+      --mid:        #334155;
+      --grey:       #64748B;
+      --light:      #F8FAFC;
+      --border:     #E2E8F0;
+      --white:      #FFFFFF;
+      --red:        #C8102E;
+      --navy:       #003580;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #CBD5E1;
+      color: var(--dark);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── PAGE SHELL ── */
+    .page {
+      width: 794px;
+      min-height: 1123px;
+      background: var(--white);
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.16);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 860px) {
+      body { background: var(--white); }
+      .page { width: 100%; min-height: auto; margin: 0; box-shadow: none; border-bottom: 10px solid #EFF6FF; }
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: white; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+      .page:last-child { page-break-after: auto; break-after: auto; }
+    }
+
+    /* ══════════════════════════════════════════
+       TRICOLOR HEADER STRIP
+    ══════════════════════════════════════════ */
+    .tristrip {
+      display: flex;
+      height: 6px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .ts-r { flex: 1; background: var(--red); }
+    .ts-w { flex: 1; background: #FFFFFF; border-top: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; }
+    .ts-b { flex: 1; background: var(--navy); }
+
+    /* ══════════════════════════════════════════
+       SHARED INNER-PAGE HEADER
+    ══════════════════════════════════════════ */
+    .pg-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 52px 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .pg-header img.logo { height: 34px; object-fit: contain; }
+
+    /* Subtle India tricolor fade — top-right, behind MII badge */
+    .pg-header::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: -4px;
+      width: 240px;
+      background: linear-gradient(to left,
+        rgba(19, 136, 8, 0.07)  0%,
+        rgba(255,255,255,0.04) 35%,
+        rgba(255,153,51,  0.07) 70%,
+        transparent            100%
+      );
+      border-radius: 0 0 0 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .mii-badge {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+    }
+    .mii-badge img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ══════════════════════════════════════════
+       SHARED PAGE FOOTER
+    ══════════════════════════════════════════ */
+    .page-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .pf-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 52px 12px;
+    }
+    .pf-left .pf-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .pf-left .pf-sub {
+      font-size: 10px;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+    }
+    .pf-right {
+      text-align: right;
+      font-size: 11px;
+      color: var(--grey);
+      line-height: 1.75;
+    }
+    .footer-stripe {
+      display: flex;
+      height: 4px;
+    }
+    .fs-s { flex: 1; background: #FF9933; }
+    .fs-w { flex: 1; background: #FFFFFF; }
+    .fs-g { flex: 1; background: #138808; }
+
+    /* ══════════════════════════════════════════
+       WATERMARK
+    ══════════════════════════════════════════ */
+    .wm {
+      position: absolute;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wm img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); }
+
+    /* ══════════════════════════════════════════
+       SECTION LABELS
+    ══════════════════════════════════════════ */
+    .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .heading {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--dark);
+      letter-spacing: -0.025em;
+    }
+    .heading em { font-style: normal; color: var(--blue); }
+    .sub { font-size: 14px; color: var(--grey); line-height: 1.75; }
+
+    /* ══════════════════════════════════════════
+       PAGE 1 — COVER
+    ══════════════════════════════════════════ */
+    .cover {
+      background: linear-gradient(150deg, #EEF5FF 0%, #FFFFFF 55%, #E8F2FF 100%);
+    }
+    .cover-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 52px 0;
+      flex-shrink: 0;
+    }
+    .cover-top img.logo { height: 48px; object-fit: contain; }
+
+    .cover-hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 52px 20px;
+      position: relative;
+    }
+    .cover-fan-wrap {
+      width: 500px;
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-fan-wrap img {
+      width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 64px rgba(0,92,232,0.18));
+    }
+    .cover-text { text-align: center; z-index: 1; margin-top: 24px; }
+    .cover-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      color: var(--blue); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .cover-title {
+      font-size: 72px; font-weight: 900; line-height: 1;
+      color: var(--dark); letter-spacing: -0.04em;
+    }
+    .cover-title .blue { color: var(--blue); }
+    .cover-tagline {
+      font-size: 14px; font-weight: 300; color: var(--grey);
+      letter-spacing: 0.25em; text-transform: uppercase; margin-top: 18px;
+    }
+    .cover-rule {
+      width: 48px; height: 3px; background: var(--blue);
+      border-radius: 2px; margin: 20px auto;
+    }
+    .cover-company { font-size: 12px; font-weight: 500; color: var(--mid); letter-spacing: 0.06em; }
+
+    .cover-wm { width: 480px; height: 480px; bottom: -120px; right: -120px; }
+
+    /* ══════════════════════════════════════════
+       PAGE 2 — ABOUT
+    ══════════════════════════════════════════ */
+    .about-body {
+      padding: 32px 52px 36px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    .about-lead {
+      font-size: 15px; line-height: 1.85; color: var(--mid);
+      margin: 20px 0 32px; max-width: 580px;
+    }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-bottom: 32px;
+    }
+    .stat-box {
+      background: var(--light); border: 1px solid var(--border);
+      border-radius: 18px; padding: 24px 20px; text-align: center;
+    }
+    .stat-box .val { font-size: 38px; font-weight: 900; color: var(--blue); letter-spacing: -0.03em; line-height: 1; }
+    .stat-box .unit { font-size: 16px; font-weight: 700; color: var(--blue); }
+    .stat-box .lbl { font-size: 10px; font-weight: 600; color: var(--grey); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 8px; }
+    .about-img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 20px; margin-bottom: 32px;
+    }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .why-card { display: flex; gap: 14px; align-items: flex-start; }
+    .why-icon {
+      width: 44px; height: 44px; background: var(--blue-light);
+      border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .why-card h4 { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .why-card p { font-size: 12px; color: var(--grey); line-height: 1.6; }
+    .about-wm { width: 400px; height: 400px; bottom: -80px; left: -80px; }
+
+    /* ══════════════════════════════════════════
+       PAGES 3–5 — PRODUCTS
+    ══════════════════════════════════════════ */
+    .product-visual {
+      height: 420px;
+      background: linear-gradient(140deg, #EFF6FF 0%, #DBEAFE 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    .product-visual img {
+      height: 100%; width: 100%; object-fit: contain; padding: 36px;
+    }
+    .prod-badge {
+      position: absolute; top: 20px; left: 52px;
+      background: white; border: 1px solid var(--border); border-radius: 100px;
+      padding: 6px 16px; font-size: 10px; font-weight: 700;
+      color: var(--blue); letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .prod-num {
+      position: absolute; bottom: 20px; right: 36px;
+      font-size: 96px; font-weight: 900;
+      color: rgba(0,92,232,0.06); line-height: 1; letter-spacing: -0.05em;
+    }
+    .product-body { flex: 1; padding: 28px 52px 24px; }
+    .product-name {
+      font-size: 36px; font-weight: 800; color: var(--dark);
+      letter-spacing: -0.025em; margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 13px; color: var(--grey);
+      margin-bottom: 24px; line-height: 1.7; max-width: 500px;
+    }
+
+    /* Standard benefit list (pages 3 & 4) */
+    .benefit-list { list-style: none; margin-bottom: 28px; }
+    .benefit-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 13.5px; color: var(--mid); line-height: 1.5;
+    }
+    .benefit-list li:first-child { padding-top: 0; }
+    .benefit-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .bcheck {
+      width: 22px; height: 22px; background: var(--blue); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .bcheck svg { width: 11px; height: 11px; stroke: white; fill: none; }
+
+    /* Floor fan feature blocks (page 5) */
+    .feat-blocks {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 24px;
+    }
+    .feat-blk {
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 18px 20px; background: var(--light);
+    }
+    .feat-blk .fb-icon { font-size: 24px; display: block; margin-bottom: 8px; }
+    .feat-blk .fb-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .feat-blk .fb-desc { font-size: 11.5px; color: var(--grey); line-height: 1.55; }
+
+    /* Spec pills */
+    .spec-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .spec-tag {
+      background: var(--light); border: 1px solid var(--border);
+      border-radius: 100px; padding: 7px 18px;
+      font-size: 12px; color: var(--mid); font-weight: 500;
+    }
+    .spec-tag strong { color: var(--dark); font-weight: 700; }
+
+    /* ══════════════════════════════════════════
+       PAGE 6 — MODEL RANGE
+    ══════════════════════════════════════════ */
+    .models-body { padding: 28px 52px 36px; flex: 1; }
+    .models-visual {
+      width: 100%; height: 210px; object-fit: contain;
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      border-radius: 20px; padding: 16px; margin-bottom: 28px;
+    }
+    .models-table { width: 100%; border-collapse: collapse; }
+    .models-table thead tr { background: var(--blue); }
+    .models-table th {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.85); text-transform: uppercase;
+      padding: 12px 14px; text-align: left;
+    }
+    .models-table td {
+      padding: 11px 14px; font-size: 12.5px; color: var(--mid);
+      border-bottom: 1px solid var(--border);
+    }
+    .models-table .mname { font-weight: 700; color: var(--dark); }
+    .models-table tr.flagship td { background: #EFF6FF; }
+    .models-table tr.flagship .mname { color: var(--blue); }
+    .flag-star {
+      display: inline-block; background: var(--blue); color: white;
+      font-size: 8px; font-weight: 700; padding: 2px 6px;
+      border-radius: 4px; letter-spacing: 0.06em; margin-left: 6px; vertical-align: middle;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE 7 — FEATURES
+    ══════════════════════════════════════════ */
+    .features-body { padding: 28px 52px 36px; flex: 1; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px; margin: 28px 0 28px;
+    }
+    .feat-card {
+      background: var(--light); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px 22px; text-align: center;
+    }
+    .feat-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+    .feat-card h3 { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .feat-card p { font-size: 11.5px; color: var(--grey); line-height: 1.65; }
+    .tech-block {
+      background: linear-gradient(135deg, var(--blue) 0%, #003FA3 100%);
+      border-radius: 20px; padding: 32px 36px; color: white;
+      display: flex; gap: 28px; align-items: center;
+    }
+    .tech-block .tb-icon { font-size: 52px; flex-shrink: 0; }
+    .tech-block h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .tech-block p { font-size: 13px; opacity: 0.82; line-height: 1.75; }
+
+    /* ══════════════════════════════════════════
+       PAGE 8 — MADE IN INDIA + APPLICATIONS
+    ══════════════════════════════════════════ */
+    .made-body { padding: 28px 52px 36px; flex: 1; }
+
+    /* Redesigned India banner */
+    .india-banner {
+      background: #FAF7F2;
+      border: 1.5px solid #E8DDD0;
+      border-radius: 24px;
+      padding: 40px 48px;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .india-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, #FF9933 33.3%, #FFFFFF 33.3%, #FFFFFF 66.6%, #138808 66.6%);
+    }
+    /* Subtle logo watermark inside banner */
+    .ib-wm {
+      position: absolute;
+      width: 260px; height: 260px;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    .ib-wm img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); }
+    /* India map icon top-right of banner */
+    .ib-map {
+      position: absolute;
+      top: 22px; right: 28px;
+      height: 80px; width: auto;
+      object-fit: contain;
+      opacity: 0.7;
+    }
+    .ib-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+      color: #9A7B4F; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .india-title {
+      font-size: 42px; font-weight: 900;
+      letter-spacing: -0.025em; margin-bottom: 10px; color: var(--dark);
+    }
+    .india-title .saffron { color: #FF9933; }
+    .india-title .green  { color: #138808; }
+    .india-sub {
+      font-size: 13px; color: var(--grey); line-height: 1.75;
+      max-width: 420px; margin: 0 auto;
+    }
+
+    .apps-label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase; margin-bottom: 18px; }
+    .apps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .app-card {
+      background: var(--light); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 10px; text-align: center;
+    }
+    .app-card .ai { font-size: 24px; display: block; margin-bottom: 7px; }
+    .app-card .an { font-size: 10px; font-weight: 600; color: var(--mid); line-height: 1.3; }
+
+    /* ══════════════════════════════════════════
+       PAGE 9 — CONTACT
+    ══════════════════════════════════════════ */
+    .contact-page {
+      background: linear-gradient(155deg, #0057B8 0%, #001A70 100%);
+      align-items: center; justify-content: center;
+      position: relative; padding: 80px 52px; text-align: center;
+    }
+    .contact-page .logo-wrap { margin-bottom: 48px; }
+    .contact-page .logo-wrap img {
+      height: 52px; object-fit: contain;
+      filter: brightness(0) invert(1); opacity: 0.95;
+    }
+    .contact-headline {
+      font-size: 52px; font-weight: 900; color: white;
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 14px;
+    }
+    .contact-sub {
+      font-size: 16px; color: rgba(255,255,255,0.6);
+      margin-bottom: 56px; font-weight: 300; letter-spacing: 0.04em;
+    }
+    .contact-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; width: 100%; max-width: 620px;
+      margin: 0 auto 48px;
+    }
+    .ccard {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px; padding: 28px 18px;
+      backdrop-filter: blur(12px);
+    }
+    .ccard .cc-icon { font-size: 26px; display: block; margin-bottom: 12px; }
+    .ccard .cc-lbl {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.55); text-transform: uppercase;
+      display: block; margin-bottom: 6px;
+    }
+    .ccard .cc-val { font-size: 13px; font-weight: 600; color: white; word-break: break-all; }
+    .contact-address { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.9; margin-bottom: 48px; }
+    .contact-cta { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; letter-spacing: 0.04em; }
+    .contact-wm {
+      position: absolute; width: 560px; height: 560px;
+      bottom: -140px; left: 50%; transform: translateX(-50%);
+    }
+
+    /* ══════════════════════════════════════════
+       MOBILE
+    ══════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .cover-title { font-size: 44px; }
+      .heading { font-size: 28px; }
+      .product-visual { height: 260px; }
+      .features-grid, .feat-blocks { grid-template-columns: 1fr 1fr; }
+      .apps-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-cards { grid-template-columns: 1fr; max-width: 280px; }
+      .contact-headline { font-size: 34px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .tech-block { flex-direction: column; text-align: center; }
+      .about-body, .models-body, .product-body, .features-body, .made-body { padding-left: 24px; padding-right: 24px; }
+      .pg-header, .cover-top, .pf-inner { padding-left: 24px; padding-right: 24px; }
+      .cover-fan-wrap { width: 100%; }
+      .prod-badge { left: 24px; }
+      .models-table { font-size: 10.5px; }
+      .models-table th, .models-table td { padding: 8px 10px; }
+      .contact-page { padding: 60px 24px; }
+      .india-banner { padding: 36px 24px; }
+      .ib-map { height: 56px; top: 16px; right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════════ -->
+<section class="page cover">
+
+  <!-- Tricolor strip -->
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <!-- Watermark -->
+  <div class="wm cover-wm">
+    <img src="logo.png" alt=""/>
+  </div>
+
+  <!-- Top bar: Logo left · MII badge right -->
+  <div class="cover-top">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="cover-hero">
+    <div class="cover-fan-wrap">
+      <img src="spyro24.png" alt="Spyro 24 HVLS Fan"/>
+    </div>
+    <div class="cover-text">
+      <p class="cover-eyebrow">High Volume · Low Speed</p>
+      <h1 class="cover-title">SPYRO<br/><span class="blue">FANS</span></h1>
+      <p class="cover-tagline">Powerful Air. Minimal Effort.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-company">Smart Rotamach Private Limited</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">
+        9949465932 &nbsp;·&nbsp; info@spyrofan.com<br/>
+        www.spyrofan.com
+      </div>
+    </div>
+    <div class="footer-stripe">
+      <div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — ABOUT
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="wm about-wm" style="width:400px;height:400px;bottom:-80px;left:-80px;">
+    <img src="logo.png" alt=""/>
+  </div>
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="about-body">
+    <p class="label">About Us</p>
+    <h2 class="heading">Built for <em>India.</em><br/>Designed for Scale.</h2>
+
+    <p class="about-lead">
+      Spyro Fans is India's own HVLS (High Volume Low Speed) fan manufacturer.
+      Founded in 2020, we design and build large industrial fans that keep
+      factories, warehouses, temples, gyms, and open spaces cool — using far less
+      electricity than ordinary fans.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="val">2020</div>
+        <div class="lbl">Est. Year</div>
+      </div>
+      <div class="stat-box">
+        <div class="val">90<span class="unit">%</span></div>
+        <div class="lbl">Energy Savings</div>
+      </div>
+      <div class="stat-box">
+        <div class="val">24<span class="unit">ft</span></div>
+        <div class="lbl">Max Fan Size</div>
+      </div>
+    </div>
+
+    <img src="airflow_img.jpg" alt="Spyro Fans Facility" class="about-img"
+         onerror="this.style.display='none'"/>
+
+    <p class="label">Why Spyro</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🌏</div>
+        <div>
+          <h4>Built for Indian Climate</h4>
+          <p>Designed for India's extreme heat, humidity, and seasonal changes — not imported and adapted.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div>
+          <h4>90% Less Electricity</h4>
+          <p>One Spyro fan replaces dozens of regular fans while using a fraction of the power.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔧</div>
+        <div>
+          <h4>Zero Maintenance</h4>
+          <p>Gearless PMSM motor means no oil changes, no repairs, no downtime — ever.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📐</div>
+        <div>
+          <h4>Any Space. Any Size.</h4>
+          <p>From compact 8 ft models to giant 24 ft units — a size for every requirement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 — PRODUCT: CEILING FAN
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="product-visual">
+    <div class="prod-badge">Ceiling Series</div>
+    <img src="roof1.png" alt="HVLS Ceiling Fan"/>
+    <div class="prod-num">01</div>
+  </div>
+
+  <div class="product-body">
+    <h2 class="product-name">HVLS Ceiling Fan</h2>
+    <p class="product-desc">
+      A ceiling-mounted giant that moves massive amounts of air slowly and silently.
+      Perfect for factories, warehouses, temples, convention halls, and any large covered space.
+    </p>
+
+    <ul class="benefit-list">
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Covers up to 2,500 m²</strong> — one fan replaces 10–15 traditional fans</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Runs on just 1.5 kW</strong> — saves up to 90% on your electricity bill</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Whisper quiet</strong> — you won't even notice it's running</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Zero maintenance</strong> — no gearbox, no oil, no service calls</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>8 sizes available</strong> — 8 ft to 24 ft to fit any space</div>
+      </li>
+    </ul>
+
+    <div class="spec-row">
+      <div class="spec-tag">Diameter <strong>8 – 24 ft</strong></div>
+      <div class="spec-tag">Motor <strong>PMSM Direct Drive</strong></div>
+      <div class="spec-tag">Rating <strong>IP65</strong></div>
+      <div class="spec-tag">Blades <strong>5 Nos.</strong></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 — PRODUCT: POLE FAN
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="product-visual" style="background:linear-gradient(140deg,#F0FFF4 0%,#DCFCE7 100%);">
+    <div class="prod-badge">Pole Series</div>
+    <img src="pole1.png" alt="Pole Mounted HVLS Fan"/>
+    <div class="prod-num" style="color:rgba(21,128,61,0.06);">02</div>
+  </div>
+
+  <div class="product-body">
+    <h2 class="product-name">Pole Mounted Fan</h2>
+    <p class="product-desc">
+      No ceiling? No problem. Our pole fans stand tall on their own — ideal for open
+      outdoor spaces, farms, sports grounds, hangars, and loading bays.
+    </p>
+
+    <ul class="benefit-list">
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Works anywhere</strong> — no ceiling or roof needed for installation</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Adjustable height</strong> — pole heights from 2.5 m to 5 m</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Targeted airflow</strong> — direct cooling exactly where people are</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Energy efficient</strong> — 0.37 kW motor, extremely low running cost</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Weatherproof build</strong> — designed for semi-outdoor Indian conditions</div>
+      </li>
+    </ul>
+
+    <div class="spec-row">
+      <div class="spec-tag">Models <strong>Elevate 300 / 450 / 600</strong></div>
+      <div class="spec-tag">Airflow <strong>1,600 m³/h</strong></div>
+      <div class="spec-tag">Noise <strong>&lt; 48 dB</strong></div>
+      <div class="spec-tag">Pole <strong>2.5 – 5.0 m</strong></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 — PRODUCT: FLOOR FAN
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="product-visual" style="background:linear-gradient(140deg,#FFF7ED 0%,#FFEDD5 100%);">
+    <div class="prod-badge">Floor Series</div>
+    <img src="floor1.png" alt="Floor Mounted HVLS Fan"/>
+    <div class="prod-num" style="color:rgba(194,65,12,0.06);">03</div>
+  </div>
+
+  <div class="product-body">
+    <h2 class="product-name">Floor Mounted Fan</h2>
+    <p class="product-desc">
+      Portable, powerful, and flexible. Our floor fans can be placed anywhere and moved
+      as needed — perfect for events, factories, poultry farms, and loading docks.
+    </p>
+
+    <ul class="benefit-list">
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Fully portable</strong> — move it to wherever cooling is needed most</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>High-velocity airflow</strong> — up to 2,800 m³/h of powerful air delivery</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>No installation needed</strong> — plug in and start cooling immediately</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>3 size options</strong> — 600 mm, 900 mm, and 1200 mm diameter</div>
+      </li>
+      <li>
+        <div class="bcheck"><svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><strong>Robust steel frame</strong> — handles rough industrial environments</div>
+      </li>
+    </ul>
+
+    <div class="spec-row">
+      <div class="spec-tag">Pro Series <strong>1800 / 2200 / Max 2800</strong></div>
+      <div class="spec-tag">Motor <strong>0.55 kW</strong></div>
+      <div class="spec-tag">Noise <strong>&lt; 52 dB</strong></div>
+      <div class="spec-tag">Sizes <strong>S · M · L</strong></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 6 — MODEL RANGE
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="models-body">
+    <p class="label">Ceiling Fan Models</p>
+    <h2 class="heading">Pick Your <em>Perfect</em> Size</h2>
+    <p class="sub" style="margin:14px 0 24px;max-width:520px;">
+      Eight sizes. One technology. Every model runs on our premium PMSM direct-drive motor —
+      silent, efficient, maintenance-free.
+    </p>
+
+    <img src="spyro24.png" alt="Spyro 24" class="models-visual" onerror="this.style.display='none'"/>
+
+    <table class="models-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Fan Size</th>
+          <th>Motor</th>
+          <th>Max Speed</th>
+          <th>Air Volume</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="flagship">
+          <td class="mname">Spyro 24 <span class="flag-star">FLAGSHIP</span></td>
+          <td>24 ft</td><td>1.5 kW</td><td>55 RPM</td><td>550,000 CFM</td><td>160 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 20</td>
+          <td>20 ft</td><td>1.1 kW</td><td>60 RPM</td><td>420,000 CFM</td><td>130 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 18</td>
+          <td>18 ft</td><td>1.1 kW</td><td>70 RPM</td><td>390,000 CFM</td><td>120 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 16</td>
+          <td>16 ft</td><td>1.1 kW</td><td>72 RPM</td><td>260,000 CFM</td><td>110 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 14</td>
+          <td>14 ft</td><td>0.75 kW</td><td>80 RPM</td><td>240,000 CFM</td><td>105 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 12</td>
+          <td>12 ft</td><td>0.56 kW</td><td>92 RPM</td><td>200,000 CFM</td><td>95 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 10</td>
+          <td>10 ft</td><td>0.56 kW</td><td>110 RPM</td><td>180,000 CFM</td><td>90 kg</td>
+        </tr>
+        <tr>
+          <td class="mname">Spyro 8</td>
+          <td>8 ft</td><td>0.37 kW</td><td>125 RPM</td><td>120,000 CFM</td><td>80 kg</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 7 — FEATURES & TECHNOLOGY
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="features-body">
+    <p class="label">Key Benefits</p>
+    <h2 class="heading">Simple to Own.<br/><em>Powerful</em> to Run.</h2>
+
+    <div class="features-grid">
+      <div class="feat-card">
+        <span class="feat-icon">🔋</span>
+        <h3>90% Energy Savings</h3>
+        <p>Replaces 10–15 ordinary fans while using less power than a single 2 HP motor.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🤫</span>
+        <h3>Whisper Quiet</h3>
+        <p>Slow blades, no gearbox — runs so quietly you won't notice it's on.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🛠️</span>
+        <h3>Zero Maintenance</h3>
+        <p>No gears. No oil. No service visits. Once installed, it just works — for years.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🌬️</span>
+        <h3>Huge Coverage</h3>
+        <p>One Spyro 24 covers up to 2,500 m² — that's half a football field.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🛡️</span>
+        <h3>IP65 Rated</h3>
+        <p>Dust-proof and water-resistant. Built for India's tough industrial conditions.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🌡️</span>
+        <h3>Smart Speed Control</h3>
+        <p>Variable speed drive adjusts airflow based on temperature and occupancy.</p>
+      </div>
+    </div>
+
+    <div class="tech-block">
+      <div class="tb-icon">⚙️</div>
+      <div>
+        <h3>PMSM Motor Technology</h3>
+        <p>
+          Our fans use a Permanent Magnet Synchronous Motor (PMSM) — same technology used in electric vehicles.
+          It starts at zero speed, runs silently, needs no oil or gears, and lasts decades with zero service calls.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 8 — MADE IN INDIA + APPLICATIONS
+══════════════════════════════════════════ -->
+<section class="page">
+
+  <div class="tristrip"><div class="ts-r"></div><div class="ts-w"></div><div class="ts-b"></div></div>
+
+  <div class="pg-header">
+    <img src="logo.png" alt="Spyro Fans" class="logo"/>
+    <div class="mii-badge">
+      <img src="india.jpg" alt="Made in India"/>
+      Made in India
+    </div>
+  </div>
+
+  <div class="made-body">
+
+    <!-- Redesigned Made in India banner -->
+    <div class="india-banner">
+      <!-- Subtle logo watermark inside banner -->
+      <div class="ib-wm"><img src="logo.png" alt=""/></div>
+      <!-- India map icon top-right -->
+      <img src="india.jpg" alt="India" class="ib-map"
+           onerror="this.style.display='none'"/>
+
+      <p class="ib-eyebrow">Proudly</p>
+      <h2 class="india-title">
+        Made in <span class="saffron">In</span><span class="green">dia</span>
+      </h2>
+      <p class="india-sub">
+        Designed, engineered, and manufactured in India.<br/>
+        Built to handle India's heat, dust, humidity, and power conditions.<br/>
+        <strong style="color:var(--dark);">Not imported. Not adapted. Built here, for here.</strong>
+      </p>
+    </div>
+
+    <!-- Applications -->
+    <p class="apps-label">Where Spyro Works</p>
+    <div class="apps-grid">
+      <div class="app-card"><span class="ai">🏭</span><span class="an">Factory &amp;<br/>Warehouse</span></div>
+      <div class="app-card"><span class="ai">🛕</span><span class="an">Temple &amp;<br/>Church</span></div>
+      <div class="app-card"><span class="ai">🛒</span><span class="an">Shopping<br/>Mall</span></div>
+      <div class="app-card"><span class="ai">🏋️</span><span class="an">Gym &amp;<br/>Fitness</span></div>
+      <div class="app-card"><span class="ai">✈️</span><span class="an">Airport &amp;<br/>Hangar</span></div>
+      <div class="app-card"><span class="ai">🎬</span><span class="an">Cinema<br/>Hall</span></div>
+      <div class="app-card"><span class="ai">🚉</span><span class="an">Railway<br/>Station</span></div>
+      <div class="app-card"><span class="ai">🎪</span><span class="an">Convention<br/>Hall</span></div>
+      <div class="app-card"><span class="ai">🐄</span><span class="an">Cattle &amp;<br/>Poultry Farm</span></div>
+      <div class="app-card"><span class="ai">🏥</span><span class="an">Hospital<br/>Facility</span></div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="pf-inner">
+      <div class="pf-left">
+        <div class="pf-name">Smart Rotamach Private Limited</div>
+        <div class="pf-sub">HVLS Fan Manufacturer · Est. 2020 · Hyderabad</div>
+      </div>
+      <div class="pf-right">9949465932 &nbsp;·&nbsp; info@spyrofan.com &nbsp;·&nbsp; www.spyrofan.com</div>
+    </div>
+    <div class="footer-stripe"><div class="fs-s"></div><div class="fs-w"></div><div class="fs-g"></div></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 9 — CONTACT
+══════════════════════════════════════════ -->
+<section class="page contact-page">
+
+  <div class="wm contact-wm" style="width:560px;height:560px;bottom:-140px;left:50%;transform:translateX(-50%);">
+    <img src="logo.png" alt=""/>
+  </div>
+
+  <div class="logo-wrap">
+    <img src="logo.png" alt="Spyro Fans"/>
+  </div>
+
+  <h2 class="contact-headline">Let's Cool<br/>Your Space.</h2>
+  <p class="contact-sub">Talk to us — we'll find the right fan for your facility.</p>
+
+  <div class="contact-cards">
+    <div class="ccard">
+      <span class="cc-icon">📞</span>
+      <span class="cc-lbl">Call Us</span>
+      <span class="cc-val">9949465932</span>
+    </div>
+    <div class="ccard">
+      <span class="cc-icon">✉️</span>
+      <span class="cc-lbl">Email</span>
+      <span class="cc-val">info@spyrofan.com</span>
+    </div>
+    <div class="ccard">
+      <span class="cc-icon">🌐</span>
+      <span class="cc-lbl">Website</span>
+      <span class="cc-val">www.spyrofan.com</span>
+    </div>
+  </div>
+
+  <p class="contact-address">
+    # 6-2-982, 3rd Floor, GNR Arcade,<br/>
+    Khairatabad, Hyderabad – 500004<br/>
+    Telangana, India
+  </p>
+
+  <p class="contact-cta">Powerful Air. Minimal Effort. &nbsp;·&nbsp; Smart Rotamach Private Limited</p>
+
+</section>
+
+</body>
+</html>
